@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A showcase of my creative coding projects - web apps, browser extensions, and developer tools">
+    <meta name="theme-color" content="#6366f1">
+    <title>Project Showcase | Benjamin Karachun</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-gradient"></div>
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="brand-icon">⚡</span>
+            <span class="brand-text">Beny Karachun</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Open Source Creator
+            </div>
+            <h1 class="hero-title">
+                Building <span class="gradient-text">Creative</span>
+                <br>Web Experiences
+            </h1>
+            <p class="hero-subtitle">
+                A collection of web applications, browser extensions, and developer tools
+                designed to solve real problems with elegant solutions.
+            </p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">
+                    <span>View Projects</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="7" y1="17" x2="17" y2="7" />
+                        <polyline points="7,7 17,7 17,17" />
+                    </svg>
+                </a>
+                <a href="https://github.com/beny-karachun" target="_blank" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-glow"></div>
+    </header>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Featured Work</span>
+                <h2 class="section-title">Projects</h2>
+                <p class="section-subtitle">A curated selection of applications I've built</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- ROW 1 -->
+
+                <!-- Shoresh - Nutrition Calculator -->
+                <article class="project-card" data-category="webapp">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">�</span>
+                            <div class="card-tags">
+                                <span class="tag tag-webapp">Web App</span>
+                                <span class="tag tag-health">Health</span>
+                            </div>
+                        </div>
+                        <h3 class="card-title">Shoresh</h3>
+                        <p class="card-description">
+                            Utilizes the Israeli database for food to automatically calculate nutritional values of
+                            custom food products.
+                            Professional food label generator compliant with Israeli Standard 1145. Automatically
+                            calculates nutritional values and applies red label for salt, sugar, and fat saturated fat.
+                        </p>
+                        <ul class="card-features">
+                            <li>Standard 1145 compliance</li>
+                            <li>Automatic red labels</li>
+                            <li>Israeli MoH database</li>
+                        </ul>
+                        <div class="card-footer">
+                            <a href="http://shoresh.streamlit.app/" target="_blank" class="card-link">Visit App →</a>
+                            <div class="card-tech">
+                                <span>Python</span>
+                                <span>Streamlit</span>
+                                <span>SQLite</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TechnionPrep BioTechFood -->
+                <article class="project-card featured" data-category="webapp">
+                    <div class="card-glow"></div>
+                    <div class="card-badge">Live</div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">🎓</span>
+                            <div class="card-tags">
+                                <span class="tag tag-webapp">Web App</span>
+                                <span class="tag tag-education">Education</span>
+                            </div>
+                        </div>
+                        <h3 class="card-title">TechnionPrep BioTechFood</h3>
+                        <p class="card-description">
+                            Course companion for Biotechnology & Food Engineering at the Technion. Interactive course
+                            map, summaries, and study tools.
+                        </p>
+                        <ul class="card-features">
+                            <li>Visual course diagram</li>
+                            <li>Course materials</li>
+                            <li>Study tools</li>
+                        </ul>
+                        <div class="card-footer">
+                            <a href="https://biotechfood.technionprep.com" target="_blank" class="card-link">Visit Site
+                                →</a>
+                            <div class="card-tech">
+                                <span>Firebase</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Math Anywhere -->
+                <article class="project-card" data-category="extension">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">📐</span>
+                            <div class="card-tags">
+                                <span class="tag tag-extension">Extension</span>
+                                <span class="tag tag-productivity">Productivity</span>
+                            </div>
+                        </div>
+                        <h3 class="card-title">Math Anywhere</h3>
+                        <p class="card-description">
+                            Type math expressions for AI chatbots without the hassle of parentheses. Press Ctrl+M to
+                            visually edit equations, then insert clean LaTeX that AI understands.
+                        </p>
+                        <ul class="card-features">
+                            <li>AI chatbot friendly</li>
+                            <li>No parentheses hassle</li>
+                            <li>Works everywhere</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="card-tech">
+                                <span>JavaScript</span>
+                                <span>MathQuill</span>
+                                <span>Chrome API</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ROW 2 -->
+
+                <!-- CFU Calculator -->
+                <article class="project-card" data-category="webapp">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">🧫</span>
+                            <div class="card-tags">
+                                <span class="tag tag-webapp">Web App</span>
+                                <span class="tag tag-science">Science</span>
+                            </div>
+                        </div>
+                        <h3 class="card-title">CFU Calculator</h3>
+                        <p class="card-description">
+                            Professional microbiology tool for calculating Colony Forming Units with statistical error
+                            analysis and KaTeX-rendered formulas.
+                        </p>
+                        <ul class="card-features">
+                            <li>Multiple dilution systems</li>
+                            <li>Statistical error calculation</li>
+                            <li>Beautiful dark theme UI</li>
+                        </ul>
+                        <div class="card-footer">
+                            <a href="https://beny-karachun.github.io/CFU-calculator/" target="_blank"
+                                class="card-link">Visit App →</a>
+                            <div class="card-tech">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- RecallMap OPUS -->
+                <article class="project-card featured" data-category="webapp">
+                    <div class="card-glow"></div>
+                    <div class="card-badge">Featured</div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">🧠</span>
+                            <div class="card-tags">
+                                <span class="tag tag-webapp">Web App</span>
+                                <span class="tag tag-education">Education</span>
+                            </div>
+                        </div>
+                        <h3 class="card-title">RecallMap OPUS</h3>
+                        <p class="card-description">
+                            Spatial active recall canvas for building and testing knowledge structures. Create mind
+                            maps, then test yourself with intelligent quizzing.
+                        </p>
+                        <ul class="card-features">
+                            <li>Visual knowledge mapping</li>
+                            <li>Active recall testing</li>
+                            <li>Progress tracking</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="card-tech">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PDF Tab Downloader -->
+                <article class="project-card" data-category="extension">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">�</span>
+                            <div class="card-tags">
+                                <span class="tag tag-extension">Extension</span>
+                                <span class="tag tag-productivity">Productivity</span>
+                            </div>
+                        </div>
+                        <h3 class="card-title">PDF Tab Downloader</h3>
+                        <p class="card-description">
+                            Download all open PDF tabs with a single click. Perfect for research sessions when you have
+                            many papers open.
+                        </p>
+                        <ul class="card-features">
+                            <li>Batch PDF downloads</li>
+                            <li>One-click operation</li>
+                            <li>Smart file naming</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="card-tech">
+                                <span>JavaScript</span>
+                                <span>Chrome API</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ROW 3 -->
+
+                <!-- Mouse As Button -->
+                <article class="project-card" data-category="tool">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">🖱️</span>
+                            <div class="card-tags">
+                                <span class="tag tag-tool">Tool</span>
+                                <span class="tag tag-mobile">Mobile</span>
+                            </div>
+                        </div>
+                        <h3 class="card-title">Mouse As Button</h3>
+                        <p class="card-description">
+                            Transform your phone into a wireless touchpad for Windows. Features gestures, haptic
+                            feedback, and no app installation required.
+                        </p>
+                        <ul class="card-features">
+                            <li>Multi-touch gestures</li>
+                            <li>USB & WiFi modes</li>
+                            <li>Adjustable sensitivity</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="card-tech">
+                                <span>Python</span>
+                                <span>Flask</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NotebookLM RTL Fixer -->
+                <article class="project-card" data-category="extension">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">🔧</span>
+                            <div class="card-tags">
+                                <span class="tag tag-extension">Extension</span>
+                                <span class="tag tag-a11y">Accessibility</span>
+                            </div>
+                        </div>
+                        <h3 class="card-title">NotebookLM RTL Fixer</h3>
+                        <p class="card-description">
+                            Fixes right-to-left text rendering issues in Google NotebookLM, making it usable for Hebrew,
+                            Arabic, and other RTL languages.
+                        </p>
+                        <ul class="card-features">
+                            <li>Automatic RTL detection</li>
+                            <li>Seamless integration</li>
+                            <li>Zero configuration</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="card-tech">
+                                <span>JavaScript</span>
+                                <span>CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PlateMind -->
+                <article class="project-card" data-category="webapp">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">�️</span>
+                            <div class="card-tags">
+                                <span class="tag tag-webapp">Web App</span>
+                                <span class="tag tag-health">Health</span>
+                            </div>
+                        </div>
+                        <h3 class="card-title">PlateMind</h3>
+                        <p class="card-description">
+                            Modern nutrition planning application built with React and TypeScript. Track meals, plan
+                            your diet, and achieve your health goals.
+                        </p>
+                        <ul class="card-features">
+                            <li>Meal planning</li>
+                            <li>Nutritional tracking</li>
+                            <li>Modern React UI</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="card-tech">
+                                <span>React</span>
+                                <span>TypeScript</span>
+                                <span>Vite</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="section-label">About Me</span>
+                    <h2 class="section-title">Passionate Developer</h2>
+                    <p>
+                        I love building tools that solve real problems. Whether it's a browser extension
+                        that fixes a minor annoyance or a full web application for scientific calculations,
+                        I focus on creating polished, user-friendly experiences.
+                    </p>
+                    <p>
+                        My projects span from educational tools like RecallMap to productivity enhancers
+                        like the Math Anywhere editor. I believe in open source and sharing solutions
+                        that can help others.
+                    </p>
+                    <div class="tech-stack">
+                        <h4>Technologies I Work With</h4>
+                        <div class="tech-icons">
+                            <div class="tech-item">
+                                <span class="tech-name">JavaScript</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">TypeScript</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">React</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">Python</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">HTML/CSS</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">Chrome APIs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">9</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Browser Extensions</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Web Apps</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Desktop Tool</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <span class="section-label">Get In Touch</span>
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="contact-text">
+                    Interested in collaborating or have questions about a project?
+                    Feel free to reach out!
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/beny-karachun" target="_blank" class="social-link" aria-label="GitHub">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a>
+                    <a href="mailto:hello@example.com" class="social-link" aria-label="Email">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Benjamin Karachun. Built with passion.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
