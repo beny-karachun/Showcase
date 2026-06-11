@@ -422,12 +422,170 @@ body {
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
-/* Projects Grid Layout */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: var(--space-xl);
-    margin-top: var(--space-2xl);
+/* Road Timeline Showcase Layout */
+.road-container {
+    position: relative;
+    width: 100%;
+    margin-top: var(--space-3xl);
+    padding: 60px 0;
+}
+
+.road-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Layered SVG Road Paths */
+.road-path {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke-dashoffset 0.05s linear;
+}
+
+/* Background Paths (diagrammatic slate outline) */
+.road-shoulder-bg {
+    stroke: var(--border-subtle);
+    stroke-width: 14px;
+}
+.road-tarmac-bg {
+    stroke: var(--bg-secondary);
+    stroke-width: 10px;
+}
+.road-divider-bg {
+    stroke: var(--text-muted);
+    stroke-width: 1.5px;
+    stroke-dasharray: 4 6;
+    opacity: 0.25;
+}
+
+/* Active Building Paths */
+.road-shoulder-active {
+    stroke: var(--border-strong);
+    stroke-width: 14px;
+}
+.road-tarmac-active {
+    stroke: var(--primary);
+    stroke-width: 10px;
+}
+.road-divider-active {
+    stroke: var(--text-primary);
+    stroke-width: 1.5px;
+    stroke-dasharray: 4 6;
+}
+
+/* Sleek geometric vehicle/marker */
+.road-marker {
+    transform-origin: center;
+    transition: transform 0.05s linear, opacity 0.3s ease;
+}
+
+/* Project Rows */
+.project-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 160px;
+    z-index: 2;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.project-row:last-child {
+    margin-bottom: 40px;
+}
+
+.project-row.filtered-out {
+    display: none !important;
+}
+
+/* Layout alternating on desktop */
+.project-row.even-row {
+    justify-content: flex-start;
+}
+.project-row.even-row .project-card {
+    width: 42%;
+    margin-right: auto;
+    transform: translateX(-40px);
+}
+
+.project-row.odd-row {
+    justify-content: flex-end;
+}
+.project-row.odd-row .project-card {
+    width: 42%;
+    margin-left: auto;
+    transform: translateX(40px);
+}
+
+/* Connectors styling */
+.road-connector {
+    position: absolute;
+    height: 1px;
+    top: 50%;
+    transform: translateY(-50%) scaleX(0);
+    background: var(--border-medium);
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+}
+
+/* Connector alignment and direction */
+.project-row.even-row .road-connector {
+    left: 42%;
+    width: 8%;
+    transform-origin: right;
+}
+
+/* Even row connector node dot */
+.project-row.even-row .road-connector::after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: var(--bg-primary);
+    border: 2px solid var(--border-medium);
+    border-radius: 50%;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.project-row.odd-row .road-connector {
+    left: 50%;
+    width: 8%;
+    transform-origin: left;
+}
+
+/* Odd row connector node dot */
+.project-row.odd-row .road-connector::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: var(--bg-primary);
+    border: 2px solid var(--border-medium);
+    border-radius: 50%;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Active style updates for connectors when active */
+.project-row.active .road-connector {
+    transform: translateY(-50%) scaleX(1);
+    background: var(--primary);
+}
+.project-row.active .road-connector::after,
+.project-row.active .road-connector::before {
+    border-color: var(--primary);
+    background: var(--text-primary);
 }
 
 /* Project Card */
@@ -437,47 +595,32 @@ body {
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-xl);
     overflow: hidden;
-    opacity: 1; /* Fully visible */
-    transition: transform var(--transition-smooth), border-color var(--transition-base), box-shadow var(--transition-base), opacity 0.4s ease;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.project-card.hidden {
-    display: none !important;
+.project-row.active .project-card {
+    opacity: 1;
+    transform: translateX(0) translateY(0) !important;
 }
 
 .project-card::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+    background: linear-gradient(180deg, rgba(79, 70, 229, 0.04) 0%, transparent 50%);
     opacity: 0;
     transition: var(--transition-smooth);
     pointer-events: none;
 }
 
-/* Entry animation when filtering */
-@keyframes cardEntry {
-    from {
-        opacity: 0;
-        transform: translateY(15px) scale(0.98);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.project-card:not(.hidden) {
-    animation: cardEntry 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
 .project-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     border-color: var(--border-medium);
-    box-shadow: var(--shadow-xl), 0 0 25px rgba(99, 102, 241, 0.15);
+    box-shadow: var(--shadow-lg), 0 4px 20px rgba(79, 70, 229, 0.1);
 }
 
 .project-card:hover::before {
@@ -840,9 +983,48 @@ body {
         align-items: center;
     }
 
-    .projects-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: var(--space-md);
+    .road-container {
+        padding-left: 80px;
+        padding-right: 0;
+    }
+
+    .project-row {
+        justify-content: flex-start !important;
+        margin-bottom: 80px;
+    }
+
+    .project-row .project-card {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        transform: translateX(30px) !important;
+    }
+
+    .road-connector {
+        left: -40px !important;
+        width: 40px !important;
+        transform-origin: left !important;
+    }
+
+    .project-row.even-row .road-connector::after {
+        display: none !important;
+    }
+
+    .project-row.even-row .road-connector::before {
+        content: '';
+        position: absolute;
+        left: -4px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        background: var(--bg-primary);
+        border: 2px solid var(--border-medium);
+        border-radius: 50%;
+    }
+
+    .project-row.odd-row .road-connector::before {
+        left: -4px !important;
     }
 
     .about-stats {

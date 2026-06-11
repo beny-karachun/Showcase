@@ -88,278 +88,323 @@
                 <button class="filter-btn" data-filter="tool">Tools</button>
             </div>
 
-            <!-- Projects Grid -->
-            <div class="projects-grid">
-                <!-- Project 1: Shoresh -->
-                <article class="project-card" data-category="webapp">
-                    <div class="card-content">
-                        <div class="card-header">
-                            <span class="card-icon">🥗</span>
-                            <div class="card-tags">
-                                <span class="tag tag-webapp">Web App</span>
-                                <span class="tag tag-health">Health</span>
-                            </div>
-                        </div>
-                        <h3 class="card-title">Shoresh</h3>
-                        <p class="card-description">
-                            Utilizes the Israeli database for food to automatically calculate nutritional values of
-                            custom food products. Professional food label generator compliant with Israeli Standard 1145.
-                            Automatically calculates nutritional values and applies red label for salt, sugar, and saturated fat.
-                        </p>
-                        <ul class="card-features">
-                            <li>Standard 1145 compliance</li>
-                            <li>Automatic red labels</li>
-                            <li>Israeli MoH database</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="http://shoresh.streamlit.app/" target="_blank" class="card-link">Visit App →</a>
-                            <div class="card-tech">
-                                <span>Python</span>
-                                <span>Streamlit</span>
-                                <span>SQLite</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+            <!-- Winding Road Showcase Container -->
+            <div class="road-container">
+                <!-- Dynamic SVG Road -->
+                <svg class="road-svg" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Static background road -->
+                    <path class="road-path road-shoulder-bg" d="" />
+                    <path class="road-path road-tarmac-bg" d="" />
+                    <path class="road-path road-divider-bg" d="" />
 
-                <!-- Project 2: TechnionPrep BioTechFood -->
-                <article class="project-card" data-category="webapp">
-                    <div class="card-content">
-                        <div class="card-header">
-                            <span class="card-icon">🎓</span>
-                            <div class="card-tags">
-                                <span class="tag tag-webapp">Web App</span>
-                                <span class="tag tag-education">Education</span>
-                            </div>
-                        </div>
-                        <h3 class="card-title">TechnionPrep BioTechFood</h3>
-                        <p class="card-description">
-                            Course companion for Biotechnology & Food Engineering at the Technion. Interactive course
-                            map, summaries, and study tools.
-                        </p>
-                        <ul class="card-features">
-                            <li>Visual course diagram</li>
-                            <li>Course materials</li>
-                            <li>Study tools</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="https://biotechfood.technionprep.com" target="_blank" class="card-link">Visit Site →</a>
-                            <div class="card-tech">
-                                <span>Firebase</span>
-                                <span>JavaScript</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                    <!-- Active road building path -->
+                    <path class="road-path road-shoulder-active" d="" />
+                    <path class="road-path road-tarmac-active" d="" />
+                    <path class="road-path road-divider-active" d="" />
 
-                <!-- Project 3: Math Anywhere -->
-                <article class="project-card" data-category="extension">
-                    <div class="card-content">
-                        <div class="card-header">
-                            <span class="card-icon">📐</span>
-                            <div class="card-tags">
-                                <span class="tag tag-extension">Extension</span>
-                                <span class="tag tag-productivity">Productivity</span>
-                            </div>
-                        </div>
-                        <h3 class="card-title">Math Anywhere</h3>
-                        <p class="card-description">
-                            Type math expressions for AI chatbots without the hassle of parentheses. Press Ctrl+M to
-                            visually edit equations, then insert clean LaTeX that AI understands.
-                        </p>
-                        <ul class="card-features">
-                            <li>AI chatbot friendly</li>
-                            <li>No parentheses hassle</li>
-                            <li>Works everywhere</li>
-                        </ul>
-                        <div class="card-footer">
-                            <div class="card-tech">
-                                <span>JavaScript</span>
-                                <span>MathQuill</span>
-                                <span>Chrome API</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                    <!-- Sleek geometric marker dot -->
+                    <g class="road-marker">
+                        <circle r="5" fill="#ffffff" stroke="var(--primary)" stroke-width="2.5" />
+                    </g>
+                </svg>
 
-                <!-- Project 4: CFU Calculator -->
-                <article class="project-card" data-category="webapp">
-                    <div class="card-content">
-                        <div class="card-header">
-                            <span class="card-icon">🧫</span>
-                            <div class="card-tags">
-                                <span class="tag tag-webapp">Web App</span>
-                                <span class="tag tag-science">Science</span>
+                <!-- Project Row 1: Shoresh -->
+                <div class="project-row" data-index="0" data-category="webapp">
+                    <div class="road-connector"></div>
+                    <article class="project-card" data-category="webapp">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="card-icon">🥗</span>
+                                <div class="card-tags">
+                                    <span class="tag tag-webapp">Web App</span>
+                                    <span class="tag tag-health">Health</span>
+                                </div>
+                            </div>
+                            <h3 class="card-title">Shoresh</h3>
+                            <p class="card-description">
+                                Utilizes the Israeli database for food to automatically calculate nutritional values of
+                                custom food products. Professional food label generator compliant with Israeli Standard 1145.
+                                Automatically calculates nutritional values and applies red label for salt, sugar, and saturated fat.
+                            </p>
+                            <ul class="card-features">
+                                <li>Standard 1145 compliance</li>
+                                <li>Automatic red labels</li>
+                                <li>Israeli MoH database</li>
+                            </ul>
+                            <div class="card-footer">
+                                <a href="http://shoresh.streamlit.app/" target="_blank" class="card-link">Visit App →</a>
+                                <div class="card-tech">
+                                    <span>Python</span>
+                                    <span>Streamlit</span>
+                                    <span>SQLite</span>
+                                </div>
                             </div>
                         </div>
-                        <h3 class="card-title">CFU Calculator</h3>
-                        <p class="card-description">
-                            Professional microbiology tool for calculating Colony Forming Units with statistical error
-                            analysis and KaTeX-rendered formulas.
-                        </p>
-                        <ul class="card-features">
-                            <li>Multiple dilution systems</li>
-                            <li>Statistical error calculation</li>
-                            <li>Beautiful UI dashboard</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="https://beny-karachun.github.io/CFU-calculator/" target="_blank" class="card-link">Visit App →</a>
-                            <div class="card-tech">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
 
-                <!-- Project 5: RecallMap OPUS -->
-                <article class="project-card" data-category="webapp">
-                    <div class="card-content">
-                        <div class="card-header">
-                            <span class="card-icon">🧠</span>
-                            <div class="card-tags">
-                                <span class="tag tag-webapp">Web App</span>
-                                <span class="tag tag-education">Education</span>
+                <!-- Project Row 2: TechnionPrep BioTechFood -->
+                <div class="project-row" data-index="1" data-category="webapp">
+                    <div class="road-connector"></div>
+                    <article class="project-card" data-category="webapp">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="card-icon">🎓</span>
+                                <div class="card-tags">
+                                    <span class="tag tag-webapp">Web App</span>
+                                    <span class="tag tag-education">Education</span>
+                                </div>
+                            </div>
+                            <h3 class="card-title">TechnionPrep BioTechFood</h3>
+                            <p class="card-description">
+                                Course companion for Biotechnology & Food Engineering at the Technion. Interactive course
+                                map, summaries, and study tools.
+                            </p>
+                            <ul class="card-features">
+                                <li>Visual course diagram</li>
+                                <li>Course materials</li>
+                                <li>Study tools</li>
+                            </ul>
+                            <div class="card-footer">
+                                <a href="https://biotechfood.technionprep.com" target="_blank" class="card-link">Visit Site →</a>
+                                <div class="card-tech">
+                                    <span>Firebase</span>
+                                    <span>JavaScript</span>
+                                </div>
                             </div>
                         </div>
-                        <h3 class="card-title">RecallMap OPUS</h3>
-                        <p class="card-description">
-                            Spatial active recall canvas for building and testing knowledge structures. Create mind
-                            maps, then test yourself with intelligent quizzing.
-                        </p>
-                        <ul class="card-features">
-                            <li>Visual knowledge mapping</li>
-                            <li>Active recall testing</li>
-                            <li>Progress tracking</li>
-                        </ul>
-                        <div class="card-footer">
-                            <div class="card-tech">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
 
-                <!-- Project 6: PDF Tab Downloader -->
-                <article class="project-card" data-category="extension">
-                    <div class="card-content">
-                        <div class="card-header">
-                            <span class="card-icon">📥</span>
-                            <div class="card-tags">
-                                <span class="tag tag-extension">Extension</span>
-                                <span class="tag tag-productivity">Productivity</span>
+                <!-- Project Row 3: Math Anywhere -->
+                <div class="project-row" data-index="2" data-category="extension">
+                    <div class="road-connector"></div>
+                    <article class="project-card" data-category="extension">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="card-icon">📐</span>
+                                <div class="card-tags">
+                                    <span class="tag tag-extension">Extension</span>
+                                    <span class="tag tag-productivity">Productivity</span>
+                                </div>
+                            </div>
+                            <h3 class="card-title">Math Anywhere</h3>
+                            <p class="card-description">
+                                Type math expressions for AI chatbots without the hassle of parentheses. Press Ctrl+M to
+                                visually edit equations, then insert clean LaTeX that AI understands.
+                            </p>
+                            <ul class="card-features">
+                                <li>AI chatbot friendly</li>
+                                <li>No parentheses hassle</li>
+                                <li>Works everywhere</li>
+                            </ul>
+                            <div class="card-footer">
+                                <div class="card-tech">
+                                    <span>JavaScript</span>
+                                    <span>MathQuill</span>
+                                    <span>Chrome API</span>
+                                </div>
                             </div>
                         </div>
-                        <h3 class="card-title">PDF Tab Downloader</h3>
-                        <p class="card-description">
-                            Download all open PDF tabs with a single click. Perfect for research sessions when you have
-                            many papers open.
-                        </p>
-                        <ul class="card-features">
-                            <li>Batch PDF downloads</li>
-                            <li>One-click operation</li>
-                            <li>Smart file naming</li>
-                        </ul>
-                        <div class="card-footer">
-                            <div class="card-tech">
-                                <span>JavaScript</span>
-                                <span>Chrome API</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
 
-                <!-- Project 7: Mouse As Button -->
-                <article class="project-card" data-category="tool">
-                    <div class="card-content">
-                        <div class="card-header">
-                            <span class="card-icon">🖱️</span>
-                            <div class="card-tags">
-                                <span class="tag tag-tool">Tool</span>
-                                <span class="tag tag-mobile">Mobile</span>
+                <!-- Project Row 4: CFU Calculator -->
+                <div class="project-row" data-index="3" data-category="webapp">
+                    <div class="road-connector"></div>
+                    <article class="project-card" data-category="webapp">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="card-icon">🧫</span>
+                                <div class="card-tags">
+                                    <span class="tag tag-webapp">Web App</span>
+                                    <span class="tag tag-science">Science</span>
+                                </div>
+                            </div>
+                            <h3 class="card-title">CFU Calculator</h3>
+                            <p class="card-description">
+                                Professional microbiology tool for calculating Colony Forming Units with statistical error
+                                analysis and KaTeX-rendered formulas.
+                            </p>
+                            <ul class="card-features">
+                                <li>Multiple dilution systems</li>
+                                <li>Statistical error calculation</li>
+                                <li>Beautiful UI dashboard</li>
+                            </ul>
+                            <div class="card-footer">
+                                <a href="https://beny-karachun.github.io/CFU-calculator/" target="_blank" class="card-link">Visit App →</a>
+                                <div class="card-tech">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JavaScript</span>
+                                </div>
                             </div>
                         </div>
-                        <h3 class="card-title">Mouse As Button</h3>
-                        <p class="card-description">
-                            Transform your phone into a wireless touchpad for Windows. Features gestures, haptic
-                            feedback, and no app installation required.
-                        </p>
-                        <ul class="card-features">
-                            <li>Multi-touch gestures</li>
-                            <li>USB & WiFi modes</li>
-                            <li>Adjustable sensitivity</li>
-                        </ul>
-                        <div class="card-footer">
-                            <div class="card-tech">
-                                <span>Python</span>
-                                <span>Flask</span>
-                                <span>JavaScript</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
 
-                <!-- Project 8: NotebookLM RTL Fixer -->
-                <article class="project-card" data-category="extension">
-                    <div class="card-content">
-                        <div class="card-header">
-                            <span class="card-icon">🔧</span>
-                            <div class="card-tags">
-                                <span class="tag tag-extension">Extension</span>
-                                <span class="tag tag-a11y">Accessibility</span>
+                <!-- Project Row 5: RecallMap OPUS -->
+                <div class="project-row" data-index="4" data-category="webapp">
+                    <div class="road-connector"></div>
+                    <article class="project-card" data-category="webapp">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="card-icon">🧠</span>
+                                <div class="card-tags">
+                                    <span class="tag tag-webapp">Web App</span>
+                                    <span class="tag tag-education">Education</span>
+                                </div>
+                            </div>
+                            <h3 class="card-title">RecallMap OPUS</h3>
+                            <p class="card-description">
+                                Spatial active recall canvas for building and testing knowledge structures. Create mind
+                                maps, then test yourself with intelligent quizzing.
+                            </p>
+                            <ul class="card-features">
+                                <li>Visual knowledge mapping</li>
+                                <li>Active recall testing</li>
+                                <li>Progress tracking</li>
+                            </ul>
+                            <div class="card-footer">
+                                <div class="card-tech">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JavaScript</span>
+                                </div>
                             </div>
                         </div>
-                        <h3 class="card-title">NotebookLM RTL Fixer</h3>
-                        <p class="card-description">
-                            Fixes right-to-left text rendering issues in Google NotebookLM, making it usable for Hebrew,
-                            Arabic, and other RTL languages.
-                        </p>
-                        <ul class="card-features">
-                            <li>Automatic RTL detection</li>
-                            <li>Seamless integration</li>
-                            <li>Zero configuration</li>
-                        </ul>
-                        <div class="card-footer">
-                            <div class="card-tech">
-                                <span>JavaScript</span>
-                                <span>CSS</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
 
-                <!-- Project 9: PlateMind -->
-                <article class="project-card" data-category="webapp">
-                    <div class="card-content">
-                        <div class="card-header">
-                            <span class="card-icon">🍽️</span>
-                            <div class="card-tags">
-                                <span class="tag tag-webapp">Web App</span>
-                                <span class="tag tag-health">Health</span>
+                <!-- Project Row 6: PDF Tab Downloader -->
+                <div class="project-row" data-index="5" data-category="extension">
+                    <div class="road-connector"></div>
+                    <article class="project-card" data-category="extension">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="card-icon">📥</span>
+                                <div class="card-tags">
+                                    <span class="tag tag-extension">Extension</span>
+                                    <span class="tag tag-productivity">Productivity</span>
+                                </div>
+                            </div>
+                            <h3 class="card-title">PDF Tab Downloader</h3>
+                            <p class="card-description">
+                                Download all open PDF tabs with a single click. Perfect for research sessions when you have
+                                many papers open.
+                            </p>
+                            <ul class="card-features">
+                                <li>Batch PDF downloads</li>
+                                <li>One-click operation</li>
+                                <li>Smart file naming</li>
+                            </ul>
+                            <div class="card-footer">
+                                <div class="card-tech">
+                                    <span>JavaScript</span>
+                                    <span>Chrome API</span>
+                                </div>
                             </div>
                         </div>
-                        <h3 class="card-title">PlateMind</h3>
-                        <p class="card-description">
-                            Modern nutrition planning application built with React and TypeScript. Track meals, plan
-                            your diet, and achieve your health goals.
-                        </p>
-                        <ul class="card-features">
-                            <li>Meal planning</li>
-                            <li>Nutritional tracking</li>
-                            <li>Modern React UI</li>
-                        </ul>
-                        <div class="card-footer">
-                            <div class="card-tech">
-                                <span>React</span>
-                                <span>TypeScript</span>
-                                <span>Vite</span>
+                    </article>
+                </div>
+
+                <!-- Project Row 7: Mouse As Button -->
+                <div class="project-row" data-index="6" data-category="tool">
+                    <div class="road-connector"></div>
+                    <article class="project-card" data-category="tool">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="card-icon">🖱️</span>
+                                <div class="card-tags">
+                                    <span class="tag tag-tool">Tool</span>
+                                    <span class="tag tag-mobile">Mobile</span>
+                                </div>
+                            </div>
+                            <h3 class="card-title">Mouse As Button</h3>
+                            <p class="card-description">
+                                Transform your phone into a wireless touchpad for Windows. Features gestures, haptic
+                                feedback, and no app installation required.
+                            </p>
+                            <ul class="card-features">
+                                <li>Multi-touch gestures</li>
+                                <li>USB & WiFi modes</li>
+                                <li>Adjustable sensitivity</li>
+                            </ul>
+                            <div class="card-footer">
+                                <div class="card-tech">
+                                    <span>Python</span>
+                                    <span>Flask</span>
+                                    <span>JavaScript</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
+
+                <!-- Project Row 8: NotebookLM RTL Fixer -->
+                <div class="project-row" data-index="7" data-category="extension">
+                    <div class="road-connector"></div>
+                    <article class="project-card" data-category="extension">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="card-icon">🔧</span>
+                                <div class="card-tags">
+                                    <span class="tag tag-extension">Extension</span>
+                                    <span class="tag tag-a11y">Accessibility</span>
+                                </div>
+                            </div>
+                            <h3 class="card-title">NotebookLM RTL Fixer</h3>
+                            <p class="card-description">
+                                Fixes right-to-left text rendering issues in Google NotebookLM, making it usable for Hebrew,
+                                Arabic, and other RTL languages.
+                            </p>
+                            <ul class="card-features">
+                                <li>Automatic RTL detection</li>
+                                <li>Seamless integration</li>
+                                <li>Zero configuration</li>
+                            </ul>
+                            <div class="card-footer">
+                                <div class="card-tech">
+                                    <span>JavaScript</span>
+                                    <span>CSS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Project Row 9: PlateMind -->
+                <div class="project-row" data-index="8" data-category="webapp">
+                    <div class="road-connector"></div>
+                    <article class="project-card" data-category="webapp">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="card-icon">🍽️</span>
+                                <div class="card-tags">
+                                    <span class="tag tag-webapp">Web App</span>
+                                    <span class="tag tag-health">Health</span>
+                                </div>
+                            </div>
+                            <h3 class="card-title">PlateMind</h3>
+                            <p class="card-description">
+                                Modern nutrition planning application built with React and TypeScript. Track meals, plan
+                                your diet, and achieve your health goals.
+                            </p>
+                            <ul class="card-features">
+                                <li>Meal planning</li>
+                                <li>Nutritional tracking</li>
+                                <li>Modern React UI</li>
+                            </ul>
+                            <div class="card-footer">
+                                <div class="card-tech">
+                                    <span>React</span>
+                                    <span>TypeScript</span>
+                                    <span>Vite</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
         </div>
     </section>
