@@ -478,7 +478,23 @@ h1, h2, h3, h4, .hero-title, .section-title, .card-title, .nav-brand {
 /* Sleek geometric vehicle/marker */
 .road-marker {
     transform-origin: center;
-    transition: transform 0.05s linear, opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+
+.marker-pulse {
+    transform-origin: center;
+    animation: marker-pulse-anim 2s infinite cubic-bezier(0.25, 0, 0, 1);
+}
+
+@keyframes marker-pulse-anim {
+    0% {
+        transform: scale(0.6);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
 }
 
 /* Project Rows */

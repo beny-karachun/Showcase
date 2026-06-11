@@ -92,6 +92,8 @@ class RoadTimeline {
         };
         
         this.currentFilter = 'all';
+        this.targetProgress = 0;
+        this.currentProgress = 0;
         this.init();
     }
     
@@ -122,7 +124,9 @@ class RoadTimeline {
                 // Rebuild the road geometry for the filtered list of rows
                 requestAnimationFrame(() => {
                     this.buildRoad();
-                    this.onScroll();
+                    this.updateTargetProgress();
+                    this.currentProgress = this.targetProgress;
+                    this.drawTimeline(this.currentProgress);
                 });
             });
         });
@@ -132,12 +136,21 @@ class RoadTimeline {
         // Global listeners
         window.addEventListener('resize', () => {
             this.buildRoad();
-            this.onScroll();
+            this.updateTargetProgress();
+            this.currentProgress = this.targetProgress;
+            this.drawTimeline(this.currentProgress);
         });
-        window.addEventListener('scroll', () => this.onScroll(), { passive: true });
+        window.addEventListener('scroll', () => this.updateTargetProgress(), { passive: true });
+        
+        // Start animation loop
+        this.animate();
         
         // Initial draw trigger
-        setTimeout(() => this.onScroll(), 100);
+        setTimeout(() => {
+            this.updateTargetProgress();
+            this.currentProgress = this.targetProgress;
+            this.drawTimeline(this.currentProgress);
+        }, 100);
     }
     
     buildRoad() {
@@ -237,13 +250,11 @@ class RoadTimeline {
         }
     }
     
-    onScroll() {
+    updateTargetProgress() {
         if (!this.pathLength) return;
-        
         const rect = this.container.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
         
-        // Calculate scroll progress relative to the container
         let progress = 0;
         const totalHeight = rect.height;
         const topThreshold = viewportHeight * 0.75;
@@ -254,8 +265,20 @@ class RoadTimeline {
             const scrollableRange = totalHeight + topThreshold - bottomThreshold;
             progress = scrolled / scrollableRange;
         }
-        progress = Math.max(0, Math.min(1, progress));
-        
+        this.targetProgress = Math.max(0, Math.min(1, progress));
+    }
+    
+    animate() {
+        const diff = this.targetProgress - this.currentProgress;
+        if (Math.abs(diff) > 0.0001) {
+            this.currentProgress += diff * 0.08; // 8% smooth LERP speed per frame
+            this.drawTimeline(this.currentProgress);
+        }
+        requestAnimationFrame(() => this.animate());
+    }
+    
+    drawTimeline(progress) {
+        if (!this.pathLength) return;
         const drawLength = this.pathLength * progress;
         
         // Draw active road strokes
@@ -292,7 +315,9 @@ class RoadTimeline {
         }
         
         // Trigger active class on visible rows
+        const rect = this.container.getBoundingClientRect();
         const containerScrollTop = -rect.top;
+        const viewportHeight = window.innerHeight;
         const triggerY = containerScrollTop + viewportHeight * 0.65;
         
         this.rows.forEach(row => {

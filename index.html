@@ -94,9 +94,12 @@
                     <path class="road-path road-shoulder-active" d="" />
                     <path class="road-path road-tarmac-active" d="" />
 
-                    <!-- Sleek geometric marker dot -->
+                    <!-- Sleek geometric marker pointer -->
                     <g class="road-marker">
-                        <circle r="5" fill="var(--bg-primary)" stroke="var(--primary)" stroke-width="2.5" />
+                        <!-- Pulsing expanding halo -->
+                        <circle r="12" fill="var(--primary)" opacity="0.3" class="marker-pulse" />
+                        <!-- Chevron arrow pointing along path direction -->
+                        <path d="M 0 -8 L 5 5 L 0 2 L -5 5 Z" fill="var(--primary)" stroke="var(--bg-primary)" stroke-width="1.2" />
                     </g>
                 </svg>
 
