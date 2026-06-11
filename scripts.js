@@ -63,10 +63,10 @@ class NavbarScroll {
     init() {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                this.navbar.style.background = 'rgba(10, 15, 26, 0.95)';
-                this.navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+                this.navbar.style.background = 'rgba(250, 249, 245, 0.98)';
+                this.navbar.style.boxShadow = 'var(--shadow-md)';
             } else {
-                this.navbar.style.background = 'rgba(10, 15, 26, 0.8)';
+                this.navbar.style.background = 'rgba(250, 249, 245, 0.95)';
                 this.navbar.style.boxShadow = 'none';
             }
         });

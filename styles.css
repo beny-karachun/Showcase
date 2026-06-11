@@ -145,10 +145,10 @@ h1, h2, h3, h4, .hero-title, .section-title, .card-title, .nav-brand {
     left: 0;
     right: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding: var(--space-lg) var(--space-2xl);
-    background: rgba(10, 15, 26, 0.8);
+    background: var(--bg-glass);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-subtle);
