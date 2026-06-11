@@ -5,33 +5,33 @@
 /* CSS Custom Properties */
 :root {
     /* Colors */
-    --bg-primary: #0a0f1a;
-    --bg-secondary: #0f1629;
-    --bg-elevated: #141b2d;
-    --bg-card: rgba(20, 27, 45, 0.8);
-    --bg-glass: rgba(20, 27, 45, 0.6);
+    --bg-primary: #070a13;      /* Dark slate-black */
+    --bg-secondary: #0c101d;    /* Slate-900 background */
+    --bg-elevated: #131a2e;     /* Slate-800 background */
+    --bg-card: #0f172a;         /* High-contrast solid slate-800 card */
+    --bg-glass: rgba(15, 23, 42, 0.9);
 
-    --border-subtle: rgba(99, 102, 241, 0.1);
-    --border-medium: rgba(99, 102, 241, 0.2);
-    --border-strong: rgba(99, 102, 241, 0.4);
+    --border-subtle: rgba(99, 102, 241, 0.2);
+    --border-medium: rgba(99, 102, 241, 0.35);
+    --border-strong: rgba(99, 102, 241, 0.6);
 
-    --primary: #6366f1;
+    --primary: #4f46e5;         /* Rich indigo */
     --primary-light: #818cf8;
-    --primary-dark: #4f46e5;
-    --secondary: #a855f7;
-    --accent-cyan: #06b6d4;
-    --accent-pink: #ec4899;
-    --accent-green: #10b981;
-    --accent-orange: #f97316;
+    --primary-dark: #3730a3;
+    --secondary: #9333ea;       /* Rich purple */
+    --accent-cyan: #0891b2;
+    --accent-pink: #db2777;
+    --accent-green: #059669;    /* Clean emerald for bio/science context */
+    --accent-orange: #ea580c;
 
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #64748b;
+    --text-primary: #ffffff;    /* Pure crisp white */
+    --text-secondary: #cbd5e1;  /* High contrast light-grey body text */
+    --text-muted: #94a3b8;      /* Clear slate-400 */
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-    --gradient-subtle: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%);
-    --gradient-glow: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.3), transparent 70%);
+    --gradient-primary: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #db2777 100%);
+    --gradient-subtle: linear-gradient(135deg, rgba(79, 70, 229, 0.2) 0%, rgba(147, 83, 234, 0.15) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, rgba(79, 70, 229, 0.25), transparent 70%);
 
     /* Spacing */
     --space-xs: 0.25rem;
@@ -388,176 +388,46 @@ body {
     position: relative;
 }
 
-/* Road Timeline Showcase Layout */
-.road-container {
-    position: relative;
-    width: 100%;
-    margin-top: var(--space-3xl);
-    padding: 60px 0;
-}
-
-.road-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Layered SVG Road Paths */
-.road-path {
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: stroke-dashoffset 0.05s linear;
-}
-
-/* Background Paths (ghostly outline) */
-.road-shoulder-bg {
-    stroke: var(--border-medium);
-    stroke-width: 52px;
-    opacity: 0.12;
-}
-.road-tarmac-bg {
-    stroke: var(--bg-primary);
-    stroke-width: 44px;
-    opacity: 0.2;
-}
-.road-divider-bg {
-    stroke: var(--text-muted);
-    stroke-width: 2px;
-    stroke-dasharray: 10 15;
-    opacity: 0.15;
-}
-
-/* Active Building Paths */
-.road-shoulder-active {
-    stroke: var(--border-strong);
-    stroke-width: 52px;
-}
-.road-tarmac-active {
-    stroke: var(--bg-elevated);
-    stroke-width: 44px;
-}
-.road-divider-active {
-    stroke: #f59e0b; /* Golden road dashed line */
-    stroke-width: 2px;
-    stroke-dasharray: 10 15;
-}
-
-/* Glowing vehicle/marker */
-.road-marker {
-    transform-origin: center;
-    transition: transform 0.05s linear, opacity 0.3s ease;
-}
-
-.marker-pulse {
-    animation: marker-pulse-anim 1.5s infinite ease-in-out;
-}
-
-@keyframes marker-pulse-anim {
-    0% {
-        transform: scale(0.8);
-        opacity: 0.8;
-    }
-    50% {
-        transform: scale(1.4);
-        opacity: 0.2;
-    }
-    100% {
-        transform: scale(0.8);
-        opacity: 0.8;
-    }
-}
-
-/* Project Rows */
-.project-row {
-    position: relative;
+/* Category Filter Bar */
+.filter-bar {
     display: flex;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 180px;
-    z-index: 2;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-3xl);
+    flex-wrap: wrap;
 }
 
-.project-row:last-child {
-    margin-bottom: 60px;
+.filter-btn {
+    padding: var(--space-sm) var(--space-xl);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-base);
 }
 
-/* Layout alternating on desktop */
-.project-row:nth-child(even) {
-    justify-content: flex-start;
-}
-.project-row:nth-child(even) .project-card {
-    width: 42%;
-    margin-right: auto;
-    transform: translateX(-50px) scale(0.95);
+.filter-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--border-medium);
+    background: var(--bg-glass);
 }
 
-.project-row:nth-child(odd) {
-    justify-content: flex-end;
-}
-.project-row:nth-child(odd) .project-card {
-    width: 42%;
-    margin-left: auto;
-    transform: translateX(50px) scale(0.95);
+.filter-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
-/* Connectors styling */
-.road-connector {
-    position: absolute;
-    height: 3px;
-    top: 50%;
-    transform: translateY(-50%) scaleX(0);
-    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
-    z-index: 1;
-    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* Connector alignment and direction */
-.project-row:nth-child(even) .road-connector {
-    left: 42%;
-    width: 8%;
-    transform-origin: right;
-}
-
-/* Even row connector dot on the road (right end) */
-.project-row:nth-child(even) .road-connector::after {
-    content: '';
-    position: absolute;
-    right: -6px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
-    background: var(--accent-cyan);
-    border: 2px solid var(--bg-primary);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan);
-}
-
-.project-row:nth-child(odd) .road-connector {
-    left: 50%;
-    width: 8%;
-    transform-origin: left;
-}
-
-/* Odd row connector dot on the road (left end) */
-.project-row:nth-child(odd) .road-connector::before {
-    content: '';
-    position: absolute;
-    left: -6px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
-    background: var(--accent-cyan);
-    border: 2px solid var(--bg-primary);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan);
+/* Projects Grid Layout */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--space-xl);
+    margin-top: var(--space-2xl);
 }
 
 /* Project Card */
@@ -565,11 +435,17 @@ body {
     position: relative;
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-2xl);
+    border-radius: var(--radius-xl);
     overflow: hidden;
-    backdrop-filter: blur(20px);
-    opacity: 0.15;
-    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+    opacity: 1; /* Fully visible */
+    transition: transform var(--transition-smooth), border-color var(--transition-base), box-shadow var(--transition-base), opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-card.hidden {
+    display: none !important;
 }
 
 .project-card::before {
@@ -579,12 +455,29 @@ body {
     background: linear-gradient(180deg, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
     opacity: 0;
     transition: var(--transition-smooth);
+    pointer-events: none;
+}
+
+/* Entry animation when filtering */
+@keyframes cardEntry {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.project-card:not(.hidden) {
+    animation: cardEntry 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     border-color: var(--border-medium);
-    box-shadow: var(--shadow-xl), var(--shadow-glow);
+    box-shadow: var(--shadow-xl), 0 0 25px rgba(99, 102, 241, 0.15);
 }
 
 .project-card:hover::before {
@@ -594,23 +487,6 @@ body {
 .project-card.featured {
     border-color: var(--border-medium);
     background: linear-gradient(180deg, rgba(99, 102, 241, 0.1) 0%, var(--bg-card) 30%);
-}
-
-.card-glow {
-    position: absolute;
-    top: -50%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.15), transparent 60%);
-    opacity: 0;
-    transition: var(--transition-slow);
-    pointer-events: none;
-}
-
-.project-card:hover .card-glow {
-    opacity: 1;
 }
 
 .card-badge {
@@ -964,49 +840,9 @@ body {
         align-items: center;
     }
 
-    .road-container {
-        padding-left: 80px;
-        padding-right: 0;
-    }
-
-    .project-row {
-        justify-content: flex-start !important;
-        margin-bottom: 100px;
-    }
-
-    .project-row .project-card {
-        width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        transform: translateX(30px) scale(0.98) !important;
-    }
-
-    .road-connector {
-        left: -40px !important;
-        width: 40px !important;
-        transform-origin: left !important;
-    }
-
-    .project-row:nth-child(even) .road-connector::after {
-        display: none !important;
-    }
-
-    .project-row:nth-child(even) .road-connector::before {
-        content: '';
-        position: absolute;
-        left: -6px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 12px;
-        height: 12px;
-        background: var(--accent-cyan);
-        border: 2px solid var(--bg-primary);
-        border-radius: 50%;
-        box-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan);
-    }
-
-    .project-row:nth-child(odd) .road-connector::before {
-        left: -6px !important;
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--space-md);
     }
 
     .about-stats {
