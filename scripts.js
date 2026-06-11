@@ -87,10 +87,8 @@ class RoadTimeline {
         this.paths = {
             bgShoulder: this.svg.querySelector('.road-shoulder-bg'),
             bgTarmac: this.svg.querySelector('.road-tarmac-bg'),
-            bgDivider: this.svg.querySelector('.road-divider-bg'),
             activeShoulder: this.svg.querySelector('.road-shoulder-active'),
-            activeTarmac: this.svg.querySelector('.road-tarmac-active'),
-            activeDivider: this.svg.querySelector('.road-divider-active')
+            activeTarmac: this.svg.querySelector('.road-tarmac-active')
         };
         
         this.currentFilter = 'all';
@@ -227,8 +225,7 @@ class RoadTimeline {
             // Set dash properties on building overlays
             const activePaths = [
                 this.paths.activeShoulder,
-                this.paths.activeTarmac,
-                this.paths.activeDivider
+                this.paths.activeTarmac
             ];
             
             activePaths.forEach(path => {
@@ -264,8 +261,7 @@ class RoadTimeline {
         // Draw active road strokes
         const activePaths = [
             this.paths.activeShoulder,
-            this.paths.activeTarmac,
-            this.paths.activeDivider
+            this.paths.activeTarmac
         ];
         
         activePaths.forEach(path => {
